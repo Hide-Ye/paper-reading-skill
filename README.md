@@ -3,11 +3,39 @@
 > 根据阅读目的和相关知识基础调整讲解的论文助读 skill。
 > A paper-reading skill that adapts explanations to your goal and relevant background.
 
-[中文](#中文) | [English](#english)
+[中文](#中文) | [English](#english) | [⬇ 下载 / Download ZIP](https://github.com/Hide-Ye/paper-reading-skill/archive/refs/heads/main.zip)
 
 ## 中文
 
 为了组会分享、项目启发和了解前沿读论文，需要关注的重点不同。这个 skill 帮助 AI 助手围绕你的目标讲解，并用轻量 memory 记住大致知识储备，让后续阅读更有针对性。
+
+### 快速下载与使用
+
+**[下载 ZIP（main 分支）](https://github.com/Hide-Ye/paper-reading-skill/archive/refs/heads/main.zip)** · [单独查看 SKILL.md](https://github.com/Hide-Ye/paper-reading-skill/blob/main/SKILL.md)
+
+1. **下载并解压**：点击上面的 ZIP 链接，无需安装 Git。也可以在仓库首页选择 **Code → Download ZIP**。
+2. **安装到助手**：在目标助手支持的 skill 目录中新建 `paper-reading` 文件夹，将解压得到的 `SKILL.md` 放进去。具体目录及重新加载方式以该助手的说明为准。
+3. **开始阅读**：确认助手已加载 `paper-reading`，然后发送论文和阅读目的。例如：
+
+> 请使用 paper-reading 帮我为组会逐段读这篇论文。我会 Python，扩散模型只接触过一点，先从摘要开始，需要的基础边读边补。
+
+安装后的结构：
+
+```text
+<助手的 skill 目录>/
+└── paper-reading/
+    └── SKILL.md
+```
+
+**熟悉 Git 的用户**也可以下载到当前目录，然后按第 2 步安装：
+
+```bash
+git clone https://github.com/Hide-Ye/paper-reading-skill.git paper-reading
+```
+
+下载本身不会自动让助手加载 skill。本项目提供指令文件，不是独立应用；助手需要支持加载自定义 skill。机器标识为 `paper-reading`，中文标题仍为“Paper 辅助阅读”。
+
+下载链接指向 `main` 的最新内容，尚未合并的 PR 不包含在内。本仓库不包含通用安装器，也未完成各平台兼容性实测。
 
 ### 它怎么工作
 
@@ -25,21 +53,6 @@ memory 用于调整讲解重心，可以独立于你自己的论文笔记数据�
 
 存储位置由用户配置或宿主可用的持久化能力决定，不固定为某台机器的绝对路径。个人 memory 与分发的 skill 文件分开保存。没有持久化能力时仍可在当前对话中使用，但不能保证跨会话保留；你可以纠正或移除记忆。
 
-### 使用
-
-将本仓库的 `SKILL.md` 放入目标助手支持的 skill 目录，目录名使用 `paper-reading`：
-
-```text
-paper-reading/
-└── SKILL.md
-```
-
-机器标识为 `paper-reading`，中文标题仍为“Paper 辅助阅读”。具体安装位置和启用方式以目标宿主说明为准；本仓库不包含安装器，也未完成各平台兼容性实测。
-
-启用后发送 PDF、链接或 arXiv 编号，例如：
-
-> 我想为组会逐段读这篇论文。会 Python，扩散模型只接触过一点，先从摘要开始，需要的基础边读边补。
-
 ### 能力与依赖
 
 - 基础模式需要助手能读取用户提供的论文内容并进行文字讲解。只有摘要时先做摘要层面的工作。
@@ -50,6 +63,34 @@ paper-reading/
 ## English
 
 Different reading goals call for different emphasis. This skill guides an AI assistant through a paper and uses lightweight memory of the reader's background to tailor future explanations.
+
+### Quick download and start
+
+**[Download ZIP (main branch)](https://github.com/Hide-Ye/paper-reading-skill/archive/refs/heads/main.zip)** · [View SKILL.md](https://github.com/Hide-Ye/paper-reading-skill/blob/main/SKILL.md)
+
+1. **Download and extract**: Use the ZIP link above; Git is not required. You can also choose **Code → Download ZIP** on the repository homepage.
+2. **Install in your assistant**: Create a `paper-reading` folder in the assistant's supported skill directory and copy the extracted `SKILL.md` into it. Follow the host's instructions for the location and reloading.
+3. **Start reading**: Confirm that the assistant has loaded `paper-reading`, then send your paper and reading goal. For example:
+
+> Use paper-reading to help me read this paper paragraph by paragraph for a lab meeting. I know Python and have only briefly encountered diffusion models. Start with the abstract and introduce prerequisites as needed.
+
+Installed layout:
+
+```text
+<assistant skill directory>/
+└── paper-reading/
+    └── SKILL.md
+```
+
+**If you use Git**, download into your current directory with the following command, then follow step 2:
+
+```bash
+git clone https://github.com/Hide-Ye/paper-reading-skill.git paper-reading
+```
+
+Downloading does not automatically load the skill. This project supplies instructions, not a standalone application; your assistant must support custom skills. The identifier is `paper-reading`; the Chinese title remains “Paper 辅助阅读”.
+
+The download tracks the latest `main` contents and excludes unmerged PRs. This repository does not include a universal installer, and compatibility has not been tested across platforms.
 
 ### How it works
 
@@ -66,21 +107,6 @@ Different reading goals call for different emphasis. This skill guides an AI ass
 Memory helps adjust explanations. It can remain independent of a personal paper-notes database and does not require synchronization or a complete learning-management system.
 
 Use the user's configured storage or an available persistent host facility, keeping personal memory separate from distributed skill files. Without persistence, adaptation still works within the current conversation, but cross-session recall is unavailable. Users can correct or remove remembered information.
-
-### Usage
-
-Place `SKILL.md` in a `paper-reading` folder within the target assistant's supported skill location:
-
-```text
-paper-reading/
-└── SKILL.md
-```
-
-The machine-readable identifier is `paper-reading`; the Chinese title remains “Paper 辅助阅读”. Follow the host's installation and activation instructions. This repository does not include an installer, and compatibility has not been tested across platforms.
-
-Send a paper PDF, URL or arXiv ID, for example:
-
-> Help me read this paper paragraph by paragraph for a lab meeting. I know Python and have only briefly encountered diffusion models. Start with the abstract and introduce prerequisites as needed.
 
 ### Capabilities and dependencies
 
