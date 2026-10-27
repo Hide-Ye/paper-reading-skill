@@ -3,7 +3,7 @@
 > 根据阅读目的和相关知识基础调整讲解的论文助读 skill。
 > A paper-reading skill that adapts explanations to your goal and relevant background.
 
-[中文](#中文) | [English](#english) | [⬇ 下载 / Download ZIP](https://github.com/Hide-Ye/paper-reading-skill/archive/refs/heads/main.zip)
+[中文](#中文) | [English](#english) | [Codex 安装](#在-codex-中安装与调用) | [⬇ 下载 / Download ZIP](https://github.com/Hide-Ye/paper-reading-skill/archive/refs/heads/main.zip)
 
 ## 中文
 
@@ -36,6 +36,30 @@ git clone https://github.com/Hide-Ye/paper-reading-skill.git paper-reading
 下载本身不会自动让助手加载 skill。本项目提供指令文件，不是独立应用；助手需要支持加载自定义 skill。机器标识为 `paper-reading`，中文标题仍为“Paper 辅助阅读”。
 
 下载链接指向 `main` 的最新内容，尚未合并的 PR 不包含在内。本仓库不包含通用安装器，也未完成各平台兼容性实测。
+
+### 在 Codex 中安装与调用
+
+当前仓库提供独立 skill。推荐在 Codex **聊天输入框**粘贴下面的指令，由内置安装器处理：
+
+```text
+$skill-installer 请从 GitHub 仓库 https://github.com/Hide-Ye/paper-reading-skill 安装论文阅读 skill。
+使用 main 分支，skill 位于仓库根目录（路径 .），安装目录名为 paper-reading。
+安装前检查是否已有同名 skill；如果存在，先说明差异，不直接覆盖。
+完成后告诉我实际安装位置及是否已被 Codex 识别。
+```
+
+安装后，在下一轮发送：
+
+```text
+$paper-reading 请辅助我逐段阅读这篇论文：[论文链接或 PDF]。
+我的阅读目的是组会分享，必要的前置知识边读边补，先从摘要开始。
+```
+
+如果安装后没有出现，重启 Codex 再试。以上是发给 Codex 的消息，不是终端命令。
+
+**手动安装备选**：将下载的 `SKILL.md` 放到用户目录下的 `~/.agents/skills/paper-reading/SKILL.md`；Windows 对应 `%USERPROFILE%\.agents\skills\paper-reading\SKILL.md`。仅供当前仓库使用时，可放到仓库内的 `.agents/skills/paper-reading/SKILL.md`。选择一种安装位置，避免重复安装。
+
+此处安装的是 skill，尚未打包或发布为插件市场中的 plugin。安装与发现方式依据 [OpenAI 官方 Skills 文档](https://learn.chatgpt.com/docs/build-skills)；安装器的实际目标目录以执行结果为准。本项目尚未进行完整安装实测。
 
 ### 它怎么工作
 
@@ -91,6 +115,30 @@ git clone https://github.com/Hide-Ye/paper-reading-skill.git paper-reading
 Downloading does not automatically load the skill. This project supplies instructions, not a standalone application; your assistant must support custom skills. The identifier is `paper-reading`; the Chinese title remains “Paper 辅助阅读”.
 
 The download tracks the latest `main` contents and excludes unmerged PRs. This repository does not include a universal installer, and compatibility has not been tested across platforms.
+
+### Install and invoke in Codex
+
+This repository currently supplies a standalone skill. Paste this into the Codex **chat input**:
+
+```text
+$skill-installer Install the paper-reading skill from https://github.com/Hide-Ye/paper-reading-skill.
+Use branch main, skill path . (repository root), and installation folder name paper-reading.
+If the skill already exists, explain the differences before overwriting.
+Report the installed location and whether Codex recognizes it.
+```
+
+On the next turn, use:
+
+```text
+$paper-reading Walk me through this paper paragraph by paragraph: [paper URL or PDF].
+I am preparing a lab meeting. Introduce prerequisites as needed and start with the abstract.
+```
+
+Restart Codex if the installed skill does not appear. These are chat messages, not terminal commands.
+
+**Manual alternative**: place `SKILL.md` at `~/.agents/skills/paper-reading/SKILL.md` (Windows: `%USERPROFILE%\.agents\skills\paper-reading\SKILL.md`). For repository-only use, choose `.agents/skills/paper-reading/SKILL.md` inside the repository instead. Choose one location to avoid duplicates.
+
+This installs a skill, not a published marketplace plugin. See the [official OpenAI Skills documentation](https://learn.chatgpt.com/docs/build-skills). The installer reports its actual destination; this project has not completed an end-to-end installation test.
 
 ### How it works
 
